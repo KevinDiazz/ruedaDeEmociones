@@ -162,7 +162,7 @@ function Acordeon() {
               ciertas emociones tienen expresiones faciales distintas que son
               reconocibles a través de culturas.
             </p>
-            <h2 className="font-bitter font-bitter text-lg mt-2">
+            <h2 className="font-bitter text-lg mt-2">
               <span className="font-indie text-4xl me-3">4</span> Escucha el Tono de Voz
             </h2>
             <p className="mb-4">
