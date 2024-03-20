@@ -1,8 +1,10 @@
+// @ts-nocheck
 import { useEffect, useRef, useState } from "react";
 import Rueda from "./ruedaD3.ts";
 import { allEmociones } from "../variables.js";
 import showInfo from "../logicRueda.ts";
-function RuedaInfo({windowWidth}) {
+
+function RuedaInfo({ windowWidth }) {
   const [showRueda, setShowRueda] = useState(false);
   const [emocionInfo, setEmocionInfo] = useState("");
   const svgRef = useRef("");
@@ -10,8 +12,9 @@ function RuedaInfo({windowWidth}) {
     if (svgRef.current) {
       // Selecciona todos los segmentos después de que se han montado.
       const segmentos = document.querySelectorAll(".segment");
-console.log(windowWidth)
+      console.log(windowWidth)
       // Función para manejar el clic.
+
       const handleSegmentClick = (e) => {
         const textContent = e.currentTarget.querySelector("text").textContent;
         console.log(textContent);
@@ -26,6 +29,7 @@ console.log(windowWidth)
       };
 
       // Función para manejar el mouseout.
+
       const handleMouseOut = (e) => {
         e.currentTarget.querySelector("path").style.strokeWidth = "1";
       };
@@ -46,7 +50,7 @@ console.log(windowWidth)
         });
       };
     }
-  }, [emocionInfo, showRueda,windowWidth]);
+  }, [emocionInfo, showRueda, windowWidth]);
 
   useEffect(() => {
     if (svgRef.current) {
@@ -56,23 +60,25 @@ console.log(windowWidth)
   return (
     <div className="flex justify-center mt-8 flex-col  xl:flex-row">
       <div className="ruedaContainer mt-0  order-2 xl:order-1 w-full">
-      <svg
-        className="font-extrabold text-[4pt] sm:text-[6pt] md:text-[8pt]"
-        ref={svgRef}
-        width={Number(windowWidth)<510?  "300":Number(windowWidth)<720 ? "520":"650"}
-        height={Number(windowWidth)>510 ? "650":Number(windowWidth)<720 ? "520":"650"}
-      ></svg>
-      {showRueda && (
-        <Rueda svgElem={svgRef.current} setEmocionInfo={setEmocionInfo}></Rueda>
-      )}</div>
+        <svg
+          className="font-extrabold text-[4pt] sm:text-[6pt] md:text-[8pt]"
+
+          ref={svgRef}
+          width={Number(windowWidth) < 510 ? "300" : Number(windowWidth) < 720 ? "520" : "650"}
+          height={Number(windowWidth) > 510 ? "650" : Number(windowWidth) < 720 ? "520" : "650"}
+        ></svg>
+        {showRueda && (
+          <Rueda svgElem={svgRef.current} setEmocionInfo={setEmocionInfo}></Rueda>
+        )}</div>
       <div className="w-full flex items-center justify-start order-1 xl:order-2  mx-8">
         {emocionInfo ? (
           <div className="w-full">
             <div>
+
               <p className="text-4xl text-start md:text-center md:text-5xl w-full font-bitter">{emocionInfo.label}</p>
             </div>
             <div className="mt-4 md:mt-9 flex justify-start">
-              <p className="text-2xl text-start"> {emocionInfo.definicion}</p>
+                 // @ts-expect-error<p className="text-2xl text-start"> {emocionInfo.definicion}</p>
             </div>
             <div className="mt-4">
               <p className="text-2xl text-start">

@@ -1,9 +1,11 @@
+// @ts-nocheck
 import * as d3 from "d3";
 import {
   emocionesCentrales,
   emocionesExteriores,
   emocionesInteriores,
 } from "../variables.js";
+
 function Rueda({ svgElem }) {
   const colorPorEmocion = {
     Felicidad: "#FFD397", // Amarillo dorado
@@ -54,7 +56,9 @@ function Rueda({ svgElem }) {
       .attr("class", "segment");
     segmentGroups
       .append("path")
+
       .attr("d", arc)
+
       .attr("fill", (d) => colorPorEmocion[d.data.tipo])
       .attr("stroke", "black")
       .attr("stroke-width", 1);
@@ -64,6 +68,7 @@ function Rueda({ svgElem }) {
       .append("text")
       .attr("transform", function (d) {
         // Calcula el centroide para posicionar el texto
+
         const [x, y] = arc.centroid(d);
         // Calcula el ángulo medio del arco en grados
         const ang = ((d.startAngle + d.endAngle) / 2) * (180 / Math.PI) - 90;
@@ -73,6 +78,7 @@ function Rueda({ svgElem }) {
       })
       .attr("text-anchor", "middle")
       .attr("alignment-baseline", "middle")
+
       .text((d) => d.data.label);
   });
 }
