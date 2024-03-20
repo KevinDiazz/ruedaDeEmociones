@@ -78,7 +78,7 @@ function RuedaInfo({ windowWidth }) {
               <p className="text-4xl text-start md:text-center md:text-5xl w-full font-bitter">{emocionInfo.label}</p>
             </div>
             <div className="mt-4 md:mt-9 flex justify-start">
-                 // @ts-expect-error<p className="text-2xl text-start"> {emocionInfo.definicion}</p>
+               <p className="text-2xl text-start"> {emocionInfo.definicion}</p>
             </div>
             <div className="mt-4">
               <p className="text-2xl text-start">
