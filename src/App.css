@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -39,4 +41,51 @@
 
 .read-the-docs {
   color: #888;
+}
+h3 .lucide {
+  width: 25px !important;
+  stroke-width: 4 !important;
+  height: 60px !important;
+  color: #e06c6c;
+}
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 50px;
+  aspect-ratio: 1;
+  display: grid;
+  border-radius: 50%;
+  background: conic-gradient(
+    #25b09b 25%,
+    #f03355 0 50%,
+    #514b82 0 75%,
+    #ffa516 0
+  );
+  animation: l22 2s infinite linear;
+}
+.loader::before,
+.loader::after {
+  content: "";
+  grid-area: 1/1;
+  margin: 15%;
+  border-radius: 50%;
+  background: inherit;
+  animation: inherit;
+}
+.loader::after {
+  margin: 25%;
+  animation-duration: 3s;
+}
+@keyframes l22 {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+.AccordionContent {
+  overflow: hidden;
+}
+.AccordionContent[data-state="open"] {
+  animation: slideDown 300ms ease-out;
+}
+.AccordionContent[data-state="closed"] {
+  animation: slideUp 300ms ease-out;
 }

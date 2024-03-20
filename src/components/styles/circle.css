@@ -1,0 +1,8 @@
+path{
+  transition: all 0.3s ease; /* Transición suave para los cambios de estilos */
+}
+
+path:hover {
+  transform:matrix3d(2); /* Aumenta el tamaño del elemento */
+  font-size: 24px; /* Aumenta el tamaño de la letra */
+}

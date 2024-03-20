@@ -1,5 +1,3 @@
-import React, { useState, useEffect } from "react";
-
 const emotions = [
   { name: "Felicidad", angle: 0 },
   { name: "Excitación", angle: 45 },
