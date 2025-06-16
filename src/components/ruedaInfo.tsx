@@ -8,45 +8,42 @@ function RuedaInfo({ windowWidth }) {
   const [showRueda, setShowRueda] = useState(false);
   const [emocionInfo, setEmocionInfo] = useState("");
   const svgRef = useRef("");
+  let segmentoActivo = null;
   useEffect(() => {
     if (svgRef.current) {
       // Selecciona todos los segmentos después de que se han montado.
       const segmentos = document.querySelectorAll(".segment");
-      console.log(windowWidth)
-      // Función para manejar el clic.
 
+      // Función para manejar el clic.
       const handleSegmentClick = (e) => {
+        //manejar estilo cuando se hace click
+        const currentSegment = e.currentTarget;
+        if (segmentoActivo && segmentoActivo !== currentSegment) {
+          segmentoActivo.classList.remove("segmento-activo");
+        }
+
+        // Alternar clase activa
+        if (currentSegment.classList.contains("segmento-activo")) {
+          currentSegment.classList.remove("segmento-activo");
+          segmentoActivo = null;
+        } else {
+          currentSegment.classList.add("segmento-activo");
+          segmentoActivo = currentSegment;
+        }
         const textContent = e.currentTarget.querySelector("text").textContent;
-        console.log(textContent);
         const valor = showInfo(textContent, allEmociones); // Asegúrate de que `allEmociones` esté definido y accesible
         setEmocionInfo(valor); // Asegúrate de que `setEmocionInfo` esté definido y accesible
-      };
-
-      // Función para manejar el mouseover.
-      const handleMouseOver = (e) => {
-        e.currentTarget.querySelector("path").style.strokeWidth = "4";
-        // e.currentTarget.querySelector("path").style.stroke = "White";
-      };
-
-      // Función para manejar el mouseout.
-
-      const handleMouseOut = (e) => {
-        e.currentTarget.querySelector("path").style.strokeWidth = "1";
       };
 
       // Agregar manejadores de eventos.
       segmentos.forEach((segmento) => {
         segmento.addEventListener("click", handleSegmentClick);
-        segmento.addEventListener("mouseover", handleMouseOver);
-        segmento.addEventListener("mouseout", handleMouseOut);
       });
 
       // Limpiar los manejadores de eventos al desmontar.
       return () => {
         segmentos.forEach((segmento) => {
           segmento.removeEventListener("click", handleSegmentClick);
-          segmento.removeEventListener("mouseover", handleMouseOver);
-          segmento.removeEventListener("mouseout", handleMouseOut);
         });
       };
     }
@@ -78,7 +75,7 @@ function RuedaInfo({ windowWidth }) {
               <p className="text-4xl text-start md:text-center md:text-5xl w-full font-bitter">{emocionInfo.label}</p>
             </div>
             <div className="mt-4 md:mt-9 flex justify-start">
-               <p className="text-2xl text-start"> {emocionInfo.definicion}</p>
+              <p className="text-2xl text-start"> {emocionInfo.definicion}</p>
             </div>
             <div className="mt-4">
               <p className="text-2xl text-start">

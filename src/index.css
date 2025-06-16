@@ -74,8 +74,9 @@
   body {
     @apply bg-background text-foreground;
   }
-  path{
+  path {
     stroke-width: 1;
     transition: stroke-width 1s ease;
+    cursor: pointer;
   }
 }

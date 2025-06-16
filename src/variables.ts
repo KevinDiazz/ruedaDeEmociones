@@ -164,7 +164,7 @@ const emocionesExteriores = [
   },
   {
     situacion:
-      " Te sientes celoso cuando tu mejor amigo pasa más tiempo con otra persona.",
+      "Te sientes celoso cuando tu mejor amigo pasa más tiempo con otra persona.",
     definicion:
       "Sentimiento de envidia hacia el éxito o ventajas de otros, temiendo perder afecto o posición.",
     valor: 1,
@@ -173,7 +173,7 @@ const emocionesExteriores = [
   },
   {
     situacion:
-      " Te sientes resentido después de ser pasado por alto para un ascenso en el trabajo.",
+      "Te sientes resentido después de ser pasado por alto para un ascenso en el trabajo.",
     definicion:
       "Sentimiento de amargura o indignación por haber sido tratado injustamente.",
     valor: 1,
@@ -231,7 +231,7 @@ const emocionesExteriores = [
   },
   {
     situacion:
-      " Te sientes irritado cuando alguien interrumpe constantemente tu concentración con preguntas triviales.",
+      "Te sientes irritado cuando alguien interrumpe constantemente tu concentración con preguntas triviales.",
     definicion: " Ligeramente enojado o molestado por algo.",
     valor: 1,
     label: "IRRITADO",
@@ -552,7 +552,7 @@ const emocionesExteriores = [
     situacion:
       "Te muestras moralista al criticar las decisiones de estilo de vida de un amigo, basándote en tus propios valores.",
     definicion:
-      ": Persona que adopta una actitud de juzgar según un conjunto de principios éticos, a menudo de manera crítica hacia los demás.",
+      "Persona que adopta una actitud de juzgar según un conjunto de principios éticos, a menudo de manera crítica hacia los demás.",
     valor: 1,
     label: "MORALISTA",
     tipo: "Asco",
